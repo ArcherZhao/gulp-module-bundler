@@ -1,0 +1,26 @@
+{
+  "name": "gulp-module-bundler",
+  "version": "0.1.0",
+  "description": "A gulp plugin for bundle up the html files, css files and javascript file",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArcherZhao/gulp-module-bundler.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "ArcherZhao <zlming1015@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^2.4.5"
+  }
+}
