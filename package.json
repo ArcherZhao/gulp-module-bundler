@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "A gulp plugin for bundle up the html files, css files and javascript file",
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "module",
+    "amd",
+    "commonjs"
   ],
   "repository": {
     "type": "git",
@@ -16,6 +19,7 @@
   "author": "ArcherZhao <zlming1015@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "clean-css": "^3.4.12",
     "gulp-util": "^3.0.7",
     "html-minifier": "^2.1.2",
     "through2": "^2.0.1"

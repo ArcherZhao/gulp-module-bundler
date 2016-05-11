@@ -17,11 +17,11 @@ A gulp plugin for bundle up the html files, css files and javascript file
 
 #### module/module.js
     const template = require("./template.ejs")
-    const style = require("./style.styl")
+    const style = require("./style.css")
     ...
 
 ## Intro
 样式和模板文件会以字符串的形式插入到js代码中的对应的位置
 
 ## Notice
-Only support `.html` `ejs` `.styl` files now.
+Only support `.html` `ejs` `css` `.styl` files now.

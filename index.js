@@ -52,6 +52,9 @@ module.exports = function (options) {
                text = css
             })
             break;
+          case "css":
+            var CleanCSS = require("clean-css")
+            text = new CleanCSS().minify(text).styles;
           default:
             return req
         }
