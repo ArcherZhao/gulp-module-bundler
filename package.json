@@ -1,6 +1,6 @@
 {
   "name": "gulp-module-bundler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A gulp plugin for bundle up the html files, css files and javascript file",
   "keywords": [
     "gulpplugin",
