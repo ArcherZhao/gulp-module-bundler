@@ -5,8 +5,8 @@ var fs = require("fs")
 
 module.exports = function (options) {
   return through.obj(function (file, enc, cb) {
-    var baseArr = file.base.split(/\/|\\/)
-    baseArr.pop()
+    var pathArr = file.path.split(/\/|\\/)
+    pathArr.pop()
     var contents = file.contents.toString(enc).replace(/require\((["'])([\.\w\d\/]+)\1\)/g, function(req, quote, rawUrl) {
       var urlArr = rawUrl.split("/")
       var fileName = urlArr[urlArr.length-1]
@@ -18,19 +18,19 @@ module.exports = function (options) {
       var url
       switch (urlArr[0]) {
         case ".." :
-          baseArr.pop()
+          pathArr.pop()
           for (var i = 1; i < urlArr.length; i++) {
             if (urlArr[i] == "..") {
-              baseArr.pop()
+              pathArr.pop()
             } else {
-              baseArr.push(urlArr[i])
+              pathArr.push(urlArr[i])
             }
           }
-          url = baseArr.join("/")
+          url = pathArr.join("/")
           break;
         case "." :
           urlArr.shift()
-          url = file.base + urlArr.join("/")
+          url = pathArr.join("/") + "/" + urlArr.join("/")
           break;
         default :
           new gutil.PluginError({
@@ -38,7 +38,6 @@ module.exports = function (options) {
             message: 'unsupported url'
           });
       }
-      gutil.log(url)
       if (url) {
         var text = fs.readFileSync(url, "utf8")
         switch (suffix) {
