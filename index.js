@@ -58,7 +58,7 @@ module.exports = function (options) {
           default:
             return req
         }
-        return "\"" + text.replace(/"/g, "\\\"") + "\""
+        return "\"" + text.replace(/\\/g, "\\\\").replace(/"/g, "\\\"") + "\""
       } else {
         return req
       }
