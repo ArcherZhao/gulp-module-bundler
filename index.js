@@ -44,16 +44,17 @@ module.exports = function (options) {
           case "html":
           case "ejs":
             text = minify(text, {collapseWhitespace:true})
-            break;
+            break
           case "styl":
             var stylus = require('stylus')
             stylus.render(text, {compress: true}, function(err, css) {
                text = css
             })
-            break;
+            break
           case "css":
             var CleanCSS = require("clean-css")
             text = new CleanCSS().minify(text).styles;
+            break
           default:
             return req
         }
